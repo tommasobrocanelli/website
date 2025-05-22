@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maturità 2024/2025 - Tommaso Brocaneli</title>
+  <style>
+    :root {
+      --blu-logo: #1A3C82;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f3f3f3;
+    }
+
+    .main-content {
+      flex: 1;
+    }
+
+    header {
+      background-color: var(--blu-logo);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--blu-logo);
+      margin: 30px 0 20px;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-bottom: 50px;
+    }
+
+    .dropdown {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .dropdown summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      background-color: white;
+    }
+
+    .dropdown[open] summary {
+      background-color: #e6ecf7;
+    }
+
+    .dropdown summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .dropdown-content {
+      padding: 20px 30px;
+      border-top: 1px solid #ccc;
+      background-color: #fafafa;
+      font-size: 1em;
+    }
+
+    .carousel {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 8px;
+      background-color: #ddd;
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease;
+      height: 100%;
+    }
+
+    .carousel-images img {
+      width: 400px;
+      height: 400px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: transparent;
+      border: none;
+      color: var(--blu-logo);
+      font-size: 2em;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      user-select: none;
+      transition: color 0.3s ease;
+      z-index: 10;
+    }
+
+    .arrow:hover {
+      color: #0d1a3a;
+    }
+
+    .arrow-left {
+      left: 10px;
+    }
+
+    .arrow-right {
+      right: 10px;
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: white;
+      color: var(--blu-logo);
+      padding: 20px 40px;
+      width: 100%;
+    }
+
+    .footer-images {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-images img {
+      height: 50px;
+      width: auto;
+    }
+
+    .footer-text {
+      font-size: 1em;
+      flex-grow: 1;
+      text-align: center;
+      font-weight: bold;
+      margin-left: -300px;
+      margin-right: -20px;
+    }
+
+    @media (max-width: 600px) {
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .footer-text {
+        text-align: left;
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-content">
+    <header>
+      Maturità 2024/2025 - Tommaso Brocaneli
+    </header>
+
+    <h1>Benvenuti nel mio sito</h1>
+
+    <div class="container">
+      <!-- Ripetuto 4 volte -->
+      <details class="dropdown">
+        <summary>Area Personale</summary>
+        <div class="dropdown-content">
+          <p>Contenuti personali, esperienze, riflessioni e percorso scolastico.</p>
+          <div class="carousel">
+            <button class="arrow arrow-left">&#10094;</button>
+            <div class="carousel-images">
+              <img src="img/umanistica.jpg" alt="Foto 1" />
+              <img src="img/azienda.jpg" alt="Foto 2" />
+              <img src="img/azienda2.jpg" alt="Foto 3" />
+            </div>
+            <button class="arrow arrow-right">&#10095;</button>
+          </div>
+        </div>
+      </details>
+
+      <details class="dropdown">
+        <summary>Area Personale</summary>
+        <div class="dropdown-content">
+          <p>Contenuti personali, esperienze, riflessioni e percorso scolastico.</p>
+          <div class="carousel">
+            <button class="arrow arrow-left">&#10094;</button>
+            <div class="carousel-images">
+              <img src="img/umanistica.jpg" alt="Foto 1" />
+              <img src="img/azienda.jpg" alt="Foto 2" />
+              <img src="img/azienda2.jpg" alt="Foto 3" />
+            </div>
+            <button class="arrow arrow-right">&#10095;</button>
+          </div>
+        </div>
+      </details>
+
+      <details class="dropdown">
+        <summary>Area Personale</summary>
+        <div class="dropdown-content">
+          <p>Contenuti personali, esperienze, riflessioni e percorso scolastico.</p>
+          <div class="carousel">
+            <button class="arrow arrow-left">&#10094;</button>
+            <div class="carousel-images">
+              <img src="img/umanistica.jpg" alt="Foto 1" />
+              <img src="img/azienda.jpg" alt="Foto 2" />
+              <img src="img/azienda2.jpg" alt="Foto 3" />
+            </div>
+            <button class="arrow arrow-right">&#10095;</button>
+          </div>
+        </div>
+      </details>
+
+      <details class="dropdown">
+        <summary>Area Personale</summary>
+        <div class="dropdown-content">
+          <p>Contenuti personali, esperienze, riflessioni e percorso scolastico.</p>
+          <div class="carousel">
+            <button class="arrow arrow-left">&#10094;</button>
+            <div class="carousel-images">
+              <img src="img/umanistica.jpg" alt="Foto 1" />
+              <img src="img/azienda.jpg" alt="Foto 2" />
+              <img src="img/azienda2.jpg" alt="Foto 3" />
+            </div>
+            <button class="arrow arrow-right">&#10095;</button>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-images">
+      <img src="img/logo1.png" alt="Logo 1">
+      <img src="img/logo2.png" alt="Logo 2">
+    </div>
+    <div class="footer-text">
+      &copy; 2025 Presentazione Esame di Stato
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      const carouselImages = carousel.querySelector('.carousel-images');
+      const images = carousel.querySelectorAll('img');
+      const prevBtn = carousel.querySelector('.arrow-left');
+      const nextBtn = carousel.querySelector('.arrow-right');
+      const totalImages = images.length;
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        const offset = -currentIndex * 400;
+        carouselImages.style.transform = `translateX(${offset}px)`;
+      }
+
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+        updateCarousel();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalImages;
+        updateCarousel();
+      });
+    });
+  </script>
+</body>
+</html>
+
