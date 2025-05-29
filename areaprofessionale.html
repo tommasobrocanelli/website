@@ -34,12 +34,46 @@
       text-align: center;
       font-size: 1.5em;
       font-weight: bold;
+      position: relative;
+    }
+
+    .home-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      text-decoration: none;
+    }
+
+    .home-button svg {
+      width: 40px;
+      height: 40px;
+      fill: white;
+      transition: fill 0.3s ease;
+    }
+
+    .home-button:hover svg {
+      fill: #e0e0e0;
     }
 
     h1 {
       text-align: center;
       color: var(--blu-logo);
       margin: 30px 0 20px;
+    }
+
+    h2 {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      color: var(--blu-logo);
     }
 
     .container {
@@ -179,15 +213,42 @@
 <body>
   <div class="main-content">
     <header>
-      Maturità 2024/2025 - Tommaso Brocaneli
+      <a href="index.html" class="home-button" aria-label="Vai alla Home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+      </a>
+      Area Professionale: le materie di indirizzo
     </header>
 
-    <h1>Benvenuti nel mio sito</h1>
+    <h1></h1>
 
     <div class="container">
-      <!-- Ripetuto 4 volte -->
+
+      <!-- PRIMO DROPDOWN: Informatica -->
       <details class="dropdown">
-        <summary>Area Personale</summary>
+        <summary>informatica</summary>
+        <div class="dropdown-content">
+          <h2>Introduzione all'informatica</h2>
+          <p>Durante il mio percorso scolastico, l'informatica ha rappresentato una disciplina centrale. Ho imparato linguaggi di programmazione come Python e Java, sviluppato progetti pratici e acquisito competenze nella risoluzione dei problemi. Questo percorso mi ha aiutato a comprendere l'importanza della logica, della precisione e della creatività nel mondo digitale.</p>
+
+          <div class="carousel">
+            <button class="arrow arrow-left">&#10094;</button>
+            <div class="carousel-images">
+              <img src="img/umanistica.jpg" alt="Foto 1" />
+              <img src="img/azienda.jpg" alt="Foto 2" />
+              <img src="img/azienda2.jpg" alt="Foto 3" />
+            </div>
+            <button class="arrow arrow-right">&#10095;</button>
+          </div>
+
+          <p>Inoltre, ho partecipato a laboratori e progetti interdisciplinari che mi hanno permesso di applicare le conoscenze informatiche in contesti reali, rafforzando le mie competenze trasversali come il lavoro di squadra e la comunicazione efficace.</p>
+        </div>
+      </details>
+
+      <!-- ALTRI DROPDOWN -->
+      <details class="dropdown">
+        <summary>Sistemi e Reti</summary>
         <div class="dropdown-content">
           <p>Contenuti personali, esperienze, riflessioni e percorso scolastico.</p>
           <div class="carousel">
@@ -203,7 +264,7 @@
       </details>
 
       <details class="dropdown">
-        <summary>Area Personale</summary>
+        <summary>TPSIT e IA</summary>
         <div class="dropdown-content">
           <p>Contenuti personali, esperienze, riflessioni e percorso scolastico.</p>
           <div class="carousel">
@@ -219,23 +280,7 @@
       </details>
 
       <details class="dropdown">
-        <summary>Area Personale</summary>
-        <div class="dropdown-content">
-          <p>Contenuti personali, esperienze, riflessioni e percorso scolastico.</p>
-          <div class="carousel">
-            <button class="arrow arrow-left">&#10094;</button>
-            <div class="carousel-images">
-              <img src="img/umanistica.jpg" alt="Foto 1" />
-              <img src="img/azienda.jpg" alt="Foto 2" />
-              <img src="img/azienda2.jpg" alt="Foto 3" />
-            </div>
-            <button class="arrow arrow-right">&#10095;</button>
-          </div>
-        </div>
-      </details>
-
-      <details class="dropdown">
-        <summary>Area Personale</summary>
+        <summary>GPOI</summary>
         <div class="dropdown-content">
           <p>Contenuti personali, esperienze, riflessioni e percorso scolastico.</p>
           <div class="carousel">
@@ -289,4 +334,3 @@
   </script>
 </body>
 </html>
-

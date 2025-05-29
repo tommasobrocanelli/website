@@ -80,6 +80,28 @@
             object-fit: cover;
         }
 
+        /* Educazione Civica */
+        .card-educazione img {
+            object-fit: contain;
+            background-color: white;
+        }
+
+        /* Area Professionale */
+        .card-professionale img {
+            object-fit: contain;
+            background-color: white;
+            height: 170px;
+            margin-top: 15px;
+        }
+
+        /* PCTO */
+        .card-pcto img {
+            object-fit: contain;
+            background-color: white;
+            height: 200px;
+            margin-top: 10px;
+        }
+
         .card-title {
             padding: 15px;
             font-size: 1.3em;
@@ -115,7 +137,6 @@
             margin-right: -20px;
         }
 
-
         @media (max-width: 600px) {
             footer {
                 flex-direction: column;
@@ -140,23 +161,23 @@
 
         <div class="container">
             <a href="areapersonale.html" class="card">
-                <img src="img/foto.jpg" alt="Area Personale">
+                <img src="img/persona.jpg" alt="Area Personale">
                 <div class="card-title">Area Personale</div>
             </a>
-            <a href="pcto.html" class="card">
-                <img src="img/tds.jpg" alt="PCTO">
+            <a href="pcto.html" class="card card-pcto">
+                <img src="img/pcto5.jpg" alt="PCTO">
                 <div class="card-title">PCTO</div>
             </a>
-            <a href="educazionecivica.html" class="card">
-                <img src="img/edcivica.jpg" alt="Educazione Civica">
+            <a href="educazionecivica.html" class="card card-educazione">
+                <img src="img/pace.jpg" alt="Educazione Civica">
                 <div class="card-title">Educazione Civica</div>
             </a>
             <a href="areaumanistica.html" class="card">
-                <img src="img/umanistica.jpg" alt="Area Umanistica">
+                <img src="img/libro.jpg" alt="Area Umanistica">
                 <div class="card-title">Area Umanistica</div>
             </a>
-            <a href="areaprofessionale.html" class="card">
-                <img src="img/profess.jpg" alt="Area Professionale">
+            <a href="areaprofessionale.html" class="card card-professionale">
+                <img src="img/tecnica.jpg" alt="Area Professionale">
                 <div class="card-title">Area Professionale</div>
             </a>
         </div>
@@ -173,6 +194,3 @@
     </footer>
 </body>
 </html>
-
-
-
