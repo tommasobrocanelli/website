@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PCTO: La mia esperienza</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --blu-logo: #1A3C82;
+      --blu-chiaro: #3b6bc5;
+      --blu-scuro: #0d2a5f;
+      --grigio-chiaro: #f8f9fa;
+      --ombra: 0 4px 20px rgba(0, 0, 0, 0.1);
+      --transizione: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(145deg, var(--blu-scuro), var(--blu-logo));
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: var(--ombra);
+      z-index: 10;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 40px;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .home-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.15);
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      text-decoration: none;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .home-button:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .home-button svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+      transition: fill 0.3s ease;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-subtitle {
+      font-size: 1.2em;
+      margin-top: 10px;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    .decorative-shape {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px;
+      background-color: var(--blu-logo);
+      clip-path: polygon(50% 100%, 0 0, 100% 0);
+      z-index: 5;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+    }
+
+    .section-title {
+      font-size: 2.2em;
+      color: var(--blu-logo);
+      margin-bottom: 40px;
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+      padding-bottom: 15px;
+      width: fit-content;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blu-chiaro), var(--blu-logo));
+      border-radius: 2px;
+    }
+
+    .intro-section {
+      background-color: white;
+      max-width: 900px;
+      width: 100%;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: var(--ombra);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      margin-bottom: 40px;
+    }
+
+    .intro-section:hover {
+      transform: translateY(-5px);
+    }
+
+    .intro-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--blu-chiaro), var(--blu-logo));
+    }
+
+    .intro-title {
+      font-size: 1.8em;
+      color: var(--blu-logo);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .intro-title i {
+      background: linear-gradient(135deg, var(--blu-chiaro), var(--blu-logo));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 1.2em;
+    }
+
+    .intro-text {
+      font-size: 1.15em;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: var(--ombra);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--blu-chiaro), var(--blu-logo));
+    }
+
+    .card-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 25px;
+    }
+
+    .card-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: var(--blu-logo);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-title i {
+      background: linear-gradient(135deg, var(--blu-chiaro), var(--blu-logo));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .card-text {
+      font-size: 1.1em;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .wide-card {
+      grid-column: span 2;
+    }
+
+    .quote {
+      margin: 25px 0;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(26, 60, 130, 0.05) 0%, rgba(59, 107, 197, 0.05) 100%);
+      border-left: 4px solid var(--blu-logo);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--blu-scuro);
+      position: relative;
+      font-size: 1.1em;
+    }
+
+    .quote::before {
+      content: '"';
+      position: absolute;
+      top: -15px;
+      left: 10px;
+      font-size: 4em;
+      color: rgba(26, 60, 130, 0.15);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .quote-author {
+      display: block;
+      text-align: right;
+      margin-top: 10px;
+      font-weight: bold;
+      color: var(--blu-logo);
+      font-style: normal;
+    }
+
+    .company-section {
+      background-color: white;
+      max-width: 900px;
+      width: 100%;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: var(--ombra);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .company-section:hover {
+      transform: translateY(-5px);
+    }
+
+    .company-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--blu-chiaro), var(--blu-logo));
+    }
+
+    .team-member {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 25px 0;
+      padding: 20px;
+      background-color: var(--grigio-chiaro);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .team-member:hover {
+      transform: translateX(10px);
+      background-color: #e3ecff;
+    }
+
+    .member-icon {
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--blu-chiaro), var(--blu-logo));
+      color: white;
+      border-radius: 50%;
+      font-size: 1.8em;
+    }
+
+    .member-info {
+      flex: 1;
+    }
+
+    .member-name {
+      font-size: 1.4em;
+      color: var(--blu-logo);
+      margin-bottom: 5px;
+    }
+
+    .member-role {
+      font-size: 1.1em;
+      color: #555;
+    }
+
+    /* Updated Footer Styles */
+    footer {
+      background: var(--blu-scuro);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-logos {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-logos img {
+      height: 3rem;
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+      transition: var(--transizione);
+    }
+
+    .footer-logos img:hover {
+      opacity: 1;
+    }
+
+    .footer-text {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social a {
+      color: white;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      transition: var(--transizione);
+      text-decoration: none;
+    }
+
+    .footer-social a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-0.2rem);
+    }
+
+    @media (max-width: 900px) {
+      .wide-card {
+        grid-column: span 1;
+      }
+      
+      .cards-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .header-content h1 {
+        font-size: 2em;
+      }
+      
+      .section-title {
+        font-size: 1.8em;
+      }
+      
+      .intro-section, .company-section {
+        padding: 30px;
+      }
+      
+      .card-content {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 30px 15px;
+      }
+      
+      .header-subtitle {
+        font-size: 1em;
+      }
+      
+      .decorative-shape {
+        width: 40px;
+        height: 40px;
+        bottom: -15px;
+      }
+      
+      .card-image {
+        height: 200px;
+      }
+      
+      .team-member {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 0 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home-button {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .section-title {
+        font-size: 1.6em;
+      }
+      
+      .card-title {
+        font-size: 1.3em;
+      }
+      
+      .intro-section, .company-section {
+        padding: 20px;
+      }
+      
+      .footer-content {
+        padding: 0 1rem;
+      }
+    }
+
+    /* Animazioni */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animated {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="home-button" aria-label="Vai alla Home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+      </a>
+      <h1>PCTO: La mia esperienza</h1>
+      <div class="header-subtitle">Esperienza suddivisa in due periodi</div>
+    </div>
+    <div class="decorative-shape"></div>
+  </header>
+
+  <div class="container">
+    <div class="section-title">Introduzione all'esperienza PCTO</div>
+    
+    <div class="intro-section animated">
+      <h2 class="intro-title"><i class="fas fa-building"></i> Techno Data System di Corinaldo</h2>
+      <p class="intro-text">
+        Ho svolto il mio periodo di PCTO nell'azienda Techno Data System di Corinaldo, una compagnia giovane fondata negli ultimi anni da due soci, Luca e Matteo. L'azienda è divisa in due parti: al piano terra si trova il servizio di riparazione computer, assistenza remota e vendita di componenti hardware, mentre al piano superiore c'è la divisione dedicata allo sviluppo software.
+      </p>
+      <p class="intro-text">
+        Durante il mio periodo di formazione, il team di sviluppo stava lavorando a un'applicazione innovativa per stabilimenti balneari che permetteva ordinazioni al bar direttamente dall'ombrellone. Sempre al piano superiore, due ragazze gestivano il servizio di abbonamento antivirus offerto dall'azienda.
+      </p>
+      
+      
+    </div>
+    
+    <div class="section-title">Periodi di formazione</div>
+    
+    <div class="cards-container">
+      <div class="card animated delay-1">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000" alt="Primo periodo PCTO" class="card-image">
+        <div class="card-content">
+          <h3 class="card-title"><i class="fas fa-tools"></i> Primo periodo</h3>
+          <p class="card-text">
+            Durante il primo periodo del mio PCTO, dal 17 maggio all'8 giugno, ho svolto attività prevalentemente manuali che mi hanno permesso di avere un contatto diretto con l'hardware dei computer dei clienti. In particolare, ho partecipato al processo di ripristino dei componenti danneggiati, un compito che, seppur semplice, mi ha permesso di acquisire una maggiore familiarità con la struttura interna di un computer e con le tecniche base di manutenzione.
+          </p>
+        </div>
+      </div>
+
+      <div class="card animated delay-2">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000" alt="Secondo periodo PCTO" class="card-image">
+        <div class="card-content">
+          <h3 class="card-title"><i class="fas fa-laptop-code"></i> Secondo periodo</h3>
+          <p class="card-text">
+            Nel secondo periodo, dal 9 al 21 settembre, le mansioni assegnatemi si sono concentrate maggiormente sulla gestione dei servizi interni dell'azienda, con particolare attenzione agli strumenti di comunicazione e assistenza ai clienti. Una delle attività più significative è stata la cura del servizio di antivirus per i clienti che avevano sottoscritto l'abbonamento, dove ho imparato a gestire le licenze e ho avuto la possibilità di vedere come viene trattato un servizio.
+          </p>
+        </div>
+      </div>
+
+      <div class="card wide-card animated delay-3">
+        <div class="card-content">
+          <h3 class="card-title"><i class="fas fa-users"></i> Componenti dell'azienda</h3>
+          <p class="card-text">
+            L'azienda è stata fondata da due soci: <strong>Matteo</strong>, che si occupa dell'assistenza tecnica, delle riparazioni e del rapporto diretto con i clienti, e <strong>Luca</strong>, responsabile dello sviluppo software e dei progetti digitali.
+          </p>
+          
+          <div class="team-member">
+            <div class="member-icon"><i class="fas fa-user-tie"></i></div>
+            <div class="member-info">
+              <div class="member-name">Matteo</div>
+              <div class="member-role">Leader dell'azienda, in partocolare si occupa della parte hardware</div>
+            </div>
+          </div>
+          
+          <div class="team-member">
+            <div class="member-icon"><i class="fas fa-code"></i></div>
+            <div class="member-info">
+              <div class="member-name">Luca</div>
+              <div class="member-role">Leader dell'azienda, in partocolare si occupa della parte software</div>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="member-icon"><i class="fas fa-code"></i></div>
+            <div class="member-info">
+              <div class="member-name">Francesco</div>
+              <div class="member-role">Programmatore, il mio tutor del secondo periodo</div>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="member-icon"><i class="fas fa-code"></i></div>
+            <div class="member-info">
+              <div class="member-name">Thomas</div>
+              <div class="member-role">Responsabile hardware e assistenza, il mio tutor del primo periodo</div>
+            </div>
+          </div>
+
+
+          
+
+          
+          
+          <p class="card-text">
+            Al piano superiore lavorano anche due ragazze, che gestiscono il servizio di abbonamenti antivirus offerto ai clienti. Il team è giovane, dinamico e ben organizzato: ogni membro svolge un ruolo preciso, contribuendo al successo dell'azienda con professionalità e competenze specifiche.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-text">
+        IIS Marconi Pieralisi - Jesi(AN)
+      </div>
+      <div class="footer-text">
+        &copy; 2025 Portfolio Esame di Stato - Tommaso Brocanelli
+      </div>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/feed/?trk=sem-ga_campid.20677489327_asid.153452322614_crid.677545198980_kw.linkedin_d.c_tid.kwd-148086543_n.g_mt.e_geo.9053433" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/tommasobrocanelli" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:brocanellitommaso@gmail.com?subject=&body=" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
