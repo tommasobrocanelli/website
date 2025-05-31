@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Area Umanistica: Materie umanistiche - Tommaso Brocanelli</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --blu-logo: #1A3C82;
+      --blu-chiaro: #3b6bc5;
+      --blu-scuro: #0d2a5f;
+      --grigio-chiaro: #f8f9fa;
+      --ombra: 0 4px 20px rgba(0, 0, 0, 0.1);
+      --transizione: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(145deg, var(--blu-scuro), var(--blu-logo));
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: var(--ombra);
+      z-index: 10;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 40px;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .home-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.15);
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      text-decoration: none;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .home-button:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .home-button svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+      transition: fill 0.3s ease;
+    }
+
+    .download-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: var(--blu-logo);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-button:hover {
+      background-color: var(--blu-chiaro);
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-subtitle {
+      font-size: 1.2em;
+      margin-top: 10px;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    .decorative-shape {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px;
+      background-color: var(--blu-logo);
+      clip-path: polygon(50% 100%, 0 0, 100% 0);
+      z-index: 5;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+    }
+
+    .section-title {
+      font-size: 2.2em;
+      color: var(--blu-logo);
+      margin-bottom: 40px;
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+      padding-bottom: 15px;
+      width: fit-content;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blu-chiaro), var(--blu-logo));
+      border-radius: 2px;
+    }
+
+    .accordion-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .accordion-item {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: var(--ombra);
+      overflow: hidden;
+      margin-bottom: 30px;
+      transition: var(--transizione);
+    }
+
+    .accordion-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .accordion-header {
+      background: linear-gradient(145deg, var(--blu-chiaro), var(--blu-logo));
+      color: white;
+      padding: 20px 25px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transizione);
+    }
+
+    .accordion-header:hover {
+      background: linear-gradient(145deg, var(--blu-logo), var(--blu-scuro));
+    }
+
+    .accordion-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .accordion-title i {
+      font-size: 1.2em;
+    }
+
+    .accordion-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-item.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.3s ease;
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 2000px;
+      padding: 25px;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 8px;
+      background-color: #f5f5f5;
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease;
+      height: 100%;
+    }
+
+    .carousel-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.7);
+      border: none;
+      color: var(--blu-logo);
+      font-size: 1.5em;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 50%;
+      user-select: none;
+      transition: all 0.3s ease;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .arrow:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+      color: var(--blu-scuro);
+    }
+
+    .arrow-left {
+      left: 15px;
+    }
+
+    .arrow-right {
+      right: 15px;
+    }
+
+    .carousel-indicators {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .indicator.active {
+      background-color: white;
+    }
+
+    .accordion-text {
+      font-size: 1.1em;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    /* Updated Footer Styles */
+    footer {
+      background: var(--blu-scuro);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-logos {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-logos img {
+      height: 3rem;
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+      transition: var(--transizione);
+    }
+
+    .footer-logos img:hover {
+      opacity: 1;
+    }
+
+    .footer-text {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social a {
+      color: white;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      transition: var(--transizione);
+      text-decoration: none;
+    }
+
+    .footer-social a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-0.2rem);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animated {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .header-content h1 {
+        font-size: 2em;
+      }
+      
+      .section-title {
+        font-size: 1.8em;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 30px 15px;
+      }
+      
+      .header-subtitle {
+        font-size: 1em;
+      }
+      
+      .decorative-shape {
+        width: 40px;
+        height: 40px;
+        bottom: -15px;
+      }
+      
+      .carousel {
+        height: 200px;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 0 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home-button {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .section-title {
+        font-size: 1.6em;
+      }
+      
+      .accordion-title {
+        font-size: 1.3em;
+      }
+      
+      .footer-content {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="home-button" aria-label="Vai alla Home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+      </a>
+      <h1>Area Umanistica</h1>
+      <div class="header-subtitle">Le materie umanistiche del mio percorso scolastico</div>
+    </div>
+    <div class="decorative-shape"></div>
+  </header>
+
+  <div class="container">
+    <div class="section-title">I miei progetti nel corso degli anni</div>
+    
+    <div class="accordion-container">
+      <!-- Italiano -->
+      <div class="accordion-item animated delay-1">
+        <div class="accordion-header">
+          <h3 class="accordion-title"><i class="fas fa-book-open"></i> Italiano</h3>
+          <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <div class="carousel">
+            <button class="arrow arrow-left">&#10094;</button>
+            <div class="carousel-images">
+              <img src="img/flappybird.jpg" alt="Programmazione">
+              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000" alt="Sviluppo software">
+              <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=1000" alt="Laboratorio informatico">
+            </div>
+            <button class="arrow arrow-right">&#10095;</button>
+            <div class="carousel-indicators">
+              <div class="indicator active"></div>
+              <div class="indicator"></div>
+              <div class="indicator"></div>
+            </div>
+          </div>
+          <p class="accordion-text">
+            Per il percorso di informatica ho deciso di inserire come progetto il Gioco dell'anno realizzato in terzo insieme ai miei compagni Lorenzo Monsu' e Simone Piermartiri, il progetto consiste nella realizzazione del gioco Flappy Bird, un gioco in cui si deve cliccare per far fare un alto all'uccellino e farlo arrivare piu lontano possibile evitando di toccare i tubi verdi, ho deciso di metterlo perché è stato il lavoro annuale di informatica che mi ha divertito di più, sia per il gioco che per la collaborazione genuina che ho avuto con i miei due compagni
+          </p>
+          <div style="text-align: center; margin-top: 20px;">
+            <a href="img/bib.pdf" class="download-button" download>
+            <i class="fas fa-download"></i> Scarica 
+            </a>
+  
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- Storia -->
+      <div class="accordion-item animated delay-2">
+        <div class="accordion-header">
+          <h3 class="accordion-title"><i class="fas fa-hourglass"></i> Storia</h3>
+          <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <div class="carousel">
+            <button class="arrow arrow-left">&#10094;</button>
+            <div class="carousel-images">
+              <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000" alt="Infrastruttura di rete">
+              <img src="https://images.unsplash.com/photo-1559305616-1403928dafa3?q=80&w=1000" alt="Cablaggio">
+              <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1000" alt="Router">
+            </div>
+            <button class="arrow arrow-right">&#10095;</button>
+            <div class="carousel-indicators">
+              <div class="indicator active"></div>
+              <div class="indicator"></div>
+              <div class="indicator"></div>
+            </div>
+          </div>
+          <p class="accordion-text">
+            Lo studio dei sistemi e delle reti mi ha permesso di comprendere l'architettura delle infrastrutture IT e le tecnologie di comunicazione che sono alla base del mondo digitale contemporaneo.
+          </p>
+          <p class="accordion-text">
+            Ho acquisito competenze nella configurazione di router e switch, nella progettazione di reti locali e nella gestione della sicurezza informatica. Queste conoscenze sono fondamentali per la creazione e manutenzione di sistemi informatici complessi.
+          </p>
+        </div>
+      </div>
+
+      <!-- Inglese -->
+      <div class="accordion-item animated delay-3">
+        <div class="accordion-header">
+          <h3 class="accordion-title"><i class="fas fa-globe"></i> Inglese</h3>
+          <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <div class="carousel">
+            <button class="arrow arrow-left">&#10094;</button>
+            <div class="carousel-images">
+              <img src="https://images.unsplash.com/photo-1677442135722-5f8ea49cec8a?q=80&w=1000" alt="Intelligenza Artificiale">
+              <img src="https://images.unsplash.com/photo-1677442135133-33d364e7d2d9?q=80&w=1000" alt="Machine Learning">
+              <img src="https://images.unsplash.com/1677442135693-2b35b0e6e03f?q=80&w=1000" alt="Algoritmi">
+            </div>
+            <button class="arrow arrow-right">&#10095;</button>
+            <div class="carousel-indicators">
+              <div class="indicator active"></div>
+              <div class="indicator"></div>
+              <div class="indicator"></div>
+            </div>
+          </div>
+          <p class="accordion-text">
+            Tecnologie e Progettazione di Sistemi Informatici e Telecomunicazioni (TPSIT) mi ha introdotto alle tecnologie avanzate e all'Intelligenza Artificiale. Ho esplorato algoritmi di machine learning e sviluppato piccoli progetti di IA.
+          </p>
+          <p class="accordion-text">
+            Questo percorso mi ha permesso di comprendere come l'IA stia trasformando vari settori e quali siano le implicazioni etiche di queste tecnologie. Ho anche approfondito le telecomunicazioni e i protocolli di comunicazione moderni.
+          </p>
+        </div>
+      </div>
+
+      
+          
+      
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      
+      <div class="footer-text">
+        IIS Marconi Pieralisi - Jesi(AN)
+      </div>
+      <div class="footer-text">
+        &copy; 2025 Portfolio Esame di Stato - Tommaso Brocanelli
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize all carousels
+      document.querySelectorAll('.carousel').forEach(carousel => {
+        const images = carousel.querySelector('.carousel-images');
+        const imageCount = images.children.length;
+        const prevBtn = carousel.querySelector('.arrow-left');
+        const nextBtn = carousel.querySelector('.arrow-right');
+        const indicators = carousel.querySelectorAll('.indicator');
+        let currentIndex = 0;
+        
+        // Update carousel position and active indicator
+        function updateCarousel() {
+          images.style.transform = `translateX(${-currentIndex * 100}%)`;
+          
+          // Update indicators
+          indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex);
+          });
+        }
+        
+        // Previous button click
+        prevBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + imageCount) % imageCount;
+          updateCarousel();
+        });
+        
+        // Next button click
+        nextBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % imageCount;
+          updateCarousel();
+        });
+        
+        // Indicator click
+        indicators.forEach((indicator, index) => {
+          indicator.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+          });
+        });
+        
+        // Initialize carousel
+        updateCarousel();
+      });
+
+      // Initialize accordion functionality
+      document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const accordionItem = header.parentElement;
+          accordionItem.classList.toggle('active');
+          
+          // Close other accordion items when opening one
+          if (accordionItem.classList.contains('active')) {
+            document.querySelectorAll('.accordion-item').forEach(item => {
+              if (item !== accordionItem && item.classList.contains('active')) {
+                item.classList.remove('active');
+              }
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
