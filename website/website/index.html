@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Esame di Stato - Tommaso Brocanelli</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --blu-primario: #1A3C82;
+            --blu-secondario: #3b6bc5;
+            --blu-scuro: #0d2a5f;
+            --blu-chiaro: #e6f0ff;
+            --grigio-chiaro: #f8f9fa;
+            --ombra: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --transizione: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            background-color: #f8faff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Nuovo Header con Design Moderno */
+        header {
+            background: linear-gradient(135deg, var(--blu-primario) 0%, var(--blu-scuro) 100%);
+            color: white;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin: 0;
+            line-height: 1.3;
+            font-weight: 700;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .header-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-top: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .header-accent {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0.15;
+            overflow: hidden;
+        }
+
+        .accent-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: white;
+            filter: blur(30px);
+        }
+
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -100px;
+        }
+
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            left: 20%;
+        }
+
+        .circle-3 {
+            width: 150px;
+            height: 150px;
+            bottom: 30%;
+            right: 25%;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 3rem 0;
+        }
+
+        .page-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .welcome-title {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            color: var(--blu-primario);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .welcome-title:after {
+            content: '';
+            position: absolute;
+            bottom: -0.8rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 5rem;
+            height: 0.3rem;
+            background: var(--blu-secondario);
+            border-radius: 0.3rem;
+        }
+
+        .welcome-text {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--ombra);
+            transition: var(--transizione);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            height: 12rem;
+            overflow: hidden;
+            position: relative;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .card-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: var(--transizione);
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--blu-primario);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .card-title i {
+            color: var(--blu-secondario);
+            font-size: 1.2em;
+        }
+
+        .card-desc {
+            color: #666;
+            margin-bottom: 1.5rem;
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--blu-primario);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: auto;
+            width: fit-content;
+            transition: var(--transizione);
+        }
+
+        .card-link:hover {
+            color: var(--blu-scuro);
+        }
+
+        .card-link i {
+            margin-left: 0.5rem;
+            transition: var(--transizione);
+        }
+
+        .card-link:hover i {
+            transform: translateX(0.3rem);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--blu-scuro);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-logos {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-logos img {
+            height: 3rem;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+            transition: var(--transizione);
+        }
+
+        .footer-logos img:hover {
+            opacity: 1;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            color: white;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            transition: var(--transizione);
+        }
+
+        .footer-social a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-0.2rem);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 4rem 1.5rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .card-image {
+                height: 10rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 3rem 1rem;
+            }
+            
+            .page-wrapper {
+                padding: 0 1rem;
+            }
+            
+            .card-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-accent">
+            <div class="accent-circle circle-1"></div>
+            <div class="accent-circle circle-2"></div>
+            <div class="accent-circle circle-3"></div>
+        </div>
+        <div class="header-content">
+            <h1>Maturità 2024/2025 - Tommaso Brocanelli</h1>
+            <div class="header-subtitle">Portfolio digitale per l'Esame di Stato</div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="page-wrapper">
+            <section class="welcome-section">
+                <h2 class="welcome-title">Benvenuti nel mio Portfolio</h2>
+                <p class="welcome-text">
+                    Esplora il mio percorso formativo attraverso le diverse aree che compongono la mia esperienza scolastica. 
+                    Ogni sezione rappresenta un aspetto fondamentale della mia crescita personale e professionale.
+                </p>
+            </section>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/personal.png" alt="Area Personale">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-user"></i> Area Personale</h3>
+                        <p class="card-desc">Profilo personale, competenze tecniche e contatti per conoscermi meglio professionalmente.</p>
+                        <a href="areapersonale.html" class="card-link">Scopri di più <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/lavoro.jpg" alt="PCTO">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-briefcase"></i> PCTO</h3>
+                        <p class="card-desc">Esperienze pratiche nel mondo del lavoro e competenze sviluppate durante il percorso formativo.</p>
+                        <a href="pcto.html" class="card-link">Vedi esperienze <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/cap-removebg-preview.png" alt="Educazione Civica">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-graduation-cap"></i> Educazione Civica</h3>
+                        <p class="card-desc">Riflessioni su temi di cittadinanza attiva, diritti umani e sostenibilità ambientale.</p>
+                        <a href="educazionecivica.html" class="card-link">Approfondisci <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/letteratura.webp" alt="Area Umanistica">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-book-open"></i> Area Umanistica</h3>
+                        <p class="card-desc">Approfondimenti letterari e analisi testuali delle opere studiate durante il percorso.</p>
+                        <a href="areaumanistica.html" class="card-link">Leggi contenuti <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/images.png" alt="Area Professionale">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-laptop-code"></i> Area Professionale</h3>
+                        <p class="card-desc">Competenze tecniche e progetti sviluppati nell'ambito informatico e tecnologico.</p>
+                        <a href="areaprofessionale.html" class="card-link">Vedi progetti <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logos">
+                IIS Marconi Pieralisi - Jesi(AN)
+            </div>
+            <div class="footer-text">
+                &copy; 2025 Portfolio Esame di Stato - Tommaso Brocanelli
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/feed/?trk=sem-ga_campid.20677489327_asid.153452322614_crid.677545198980_kw.linkedin_d.c_tid.kwd-148086543_n.g_mt.e_geo.9053433" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/tommasobrocanelli" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=brocanellitommaso@gmail.com', '_blank'" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
