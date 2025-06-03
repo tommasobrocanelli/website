@@ -221,11 +221,13 @@
     .carousel {
       position: relative;
       width: 100%;
-      height: 250px;
+      max-width: 400px;
+      height: 350px;
       margin: 20px auto;
       overflow: hidden;
-      border-radius: 8px;
+      border-radius: 12px;
       background-color: #f5f5f5;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .carousel-images {
@@ -245,12 +247,12 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background-color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.8);
       border: none;
       color: var(--blu-logo);
       font-size: 1.5em;
-      width: 40px;
-      height: 40px;
+      width: 45px;
+      height: 45px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -259,12 +261,13 @@
       user-select: none;
       transition: all 0.3s ease;
       z-index: 10;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     }
 
     .arrow:hover {
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.95);
       color: var(--blu-scuro);
+      transform: translateY(-50%) scale(1.1);
     }
 
     .arrow-left {
@@ -281,21 +284,24 @@
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 8px;
+      gap: 10px;
       z-index: 10;
     }
 
     .indicator {
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(255, 255, 255, 0.6);
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.3);
     }
 
     .indicator.active {
       background-color: white;
+      border-color: white;
+      transform: scale(1.2);
     }
 
     .accordion-text {
@@ -413,7 +419,8 @@
       }
       
       .carousel {
-        height: 200px;
+        max-width: 320px;
+        height: 280px;
       }
       
       .footer-content {
@@ -435,6 +442,11 @@
       
       .accordion-title {
         font-size: 1.3em;
+      }
+      
+      .carousel {
+        max-width: 280px;
+        height: 240px;
       }
       
       .footer-content {
@@ -461,6 +473,7 @@
     <div class="section-title">I miei progetti nel corso degli anni</div>
     
     <div class="accordion-container">
+
       <!-- Informatica -->
       <div class="accordion-item animated delay-1">
         <div class="accordion-header">
@@ -471,9 +484,10 @@
           <div class="carousel">
             <button class="arrow arrow-left">&#10094;</button>
             <div class="carousel-images">
-              <img src="img/flappybird.jpg" alt="Programmazione">
-              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000" alt="Sviluppo software">
-              <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=1000" alt="Laboratorio informatico">
+              <img src="img/flappy.jpg" >
+              <img src="img/flap.jpg" >
+              <img src="img/fla.jpg" >
+              <img src="img/punteggio.png" >
             </div>
             <button class="arrow arrow-right">&#10095;</button>
             <div class="carousel-indicators">
@@ -483,15 +497,36 @@
             </div>
           </div>
           <p class="accordion-text">
-            Per il percorso di informatica ho deciso di inserire come progetto il Gioco dell'anno realizzato in terzo insieme ai miei compagni Lorenzo Monsu' e Simone Piermartiri, il progetto consiste nella realizzazione del gioco Flappy Bird, un gioco in cui si deve cliccare per far fare un alto all'uccellino e farlo arrivare piu lontano possibile evitando di toccare i tubi verdi, ho deciso di metterlo perché è stato il lavoro annuale di informatica che mi ha divertito di più, sia per il gioco che per la collaborazione genuina che ho avuto con i miei due compagni
+            Per il percorso di informatica ho deciso di inserire come progetto il Gioco dell'anno realizzato in terzo insieme ai miei compagni Lorenzo Monsu' e Simone Piermartiri, il progetto consiste nella realizzazione del gioco Flappy Bird, un gioco in cui si deve cliccare per far fare un alto all'uccellino e farlo arrivare piu lontano possibile evitando di toccare i tubi verdi.
           </p>
           <div style="text-align: center; margin-top: 20px;">
-            <a href="img/bib.pdf" class="download-button" download>
+            <a href="files/FlippyBird.zip" class="download-button" download>
             <i class="fas fa-download"></i> Scarica 
             </a>
-  
             </div>
-          
+            <div class="carousel">
+            <button class="arrow arrow-left">&#10094;</button>
+            <div class="carousel-images">
+              <img src="img/flappy.jpg" >
+              <img src="img/flap.jpg" >
+              <img src="img/fla.jpg" >
+              <img src="img/punteggio.png" >
+            </div>
+            <button class="arrow arrow-right">&#10095;</button>
+            <div class="carousel-indicators">
+              <div class="indicator active"></div>
+              <div class="indicator"></div>
+              <div class="indicator"></div>
+            </div>
+          </div>
+          <p class="accordion-text">
+           Il secondo progetto di cui parlo è quello realizzato in quarto, la consegna era di creare un software che non sia un gioco, io e il mio compagno Tommaso Nicolini abbiamo scelto di fare un proramma che simula un applicazione calcistica con partite, squadre e risultati, con la possibilità anche di creare campionati fra amici e inserendo le statistiche creare una classifica finale.
+          </p>
+          <div style="text-align: center; margin-top: 20px;">
+            <a href="files/FlippyBird.zip" class="download-button" download>
+            <i class="fas fa-download"></i> Scarica 
+            </a>
+            </div>
         </div>
       </div>
 
@@ -505,9 +540,12 @@
           <div class="carousel">
             <button class="arrow arrow-left">&#10094;</button>
             <div class="carousel-images">
-              <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000" alt="Infrastruttura di rete">
-              <img src="https://images.unsplash.com/photo-1559305616-1403928dafa3?q=80&w=1000" alt="Cablaggio">
-              <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1000" alt="Router">
+              <img src="img/sis.png" >
+              <img src="img/ret.png">
+              <img src="img/sisimg1.png" >
+              <img src="img/sisimg2.png" >
+              <img src="img/sisimg3.png" >
+
             </div>
             <button class="arrow arrow-right">&#10095;</button>
             <div class="carousel-indicators">
@@ -517,11 +555,9 @@
             </div>
           </div>
           <p class="accordion-text">
-            Lo studio dei sistemi e delle reti mi ha permesso di comprendere l'architettura delle infrastrutture IT e le tecnologie di comunicazione che sono alla base del mondo digitale contemporaneo.
+            Per sistemi e reti ho deciso di inserire il mio progetto su raspberry, in cui io e il mio compagno Michele Rinaldi abbiamo realizzato un piccolo gioco che consiste nel ricordarsi la combinazione generata a caso dai led, e poi inserirla con i tasti corrispondenti, ogni volta che si riesce a indovinare la combinazione incrementa di un valore, fino ad un massimo di 8.
           </p>
-          <p class="accordion-text">
-            Ho acquisito competenze nella configurazione di router e switch, nella progettazione di reti locali e nella gestione della sicurezza informatica. Queste conoscenze sono fondamentali per la creazione e manutenzione di sistemi informatici complessi.
-          </p>
+          
         </div>
       </div>
 
@@ -597,9 +633,9 @@
         &copy; 2025 Portfolio Esame di Stato - Tommaso Brocanelli
       </div>
       <div class="footer-social">
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/feed/?trk=sem-ga_campid.20677489327_asid.153452322614_crid.677545198980_kw.linkedin_d.c_tid.kwd-148086543_n.g_mt.e_geo.9053433" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/tommasobrocanelli" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:brocanellitommaso@gmail.com?subject=&body=" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
   </footer>
