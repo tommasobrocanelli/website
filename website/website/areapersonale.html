@@ -12,7 +12,6 @@
       --blu-scuro: #0d2a5f;
       --grigio-chiaro: #f8f9fa;
       --ombra: 0 4px 20px rgba(0, 0, 0, 0.1);
-      --transizione: all 0.3s ease;
     }
 
     * {
@@ -337,70 +336,62 @@
       font-style: normal;
     }
 
-    /* Updated Footer Styles */
     footer {
-      background: var(--blu-scuro);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(145deg, var(--blu-scuro), var(--blu-logo));
       color: white;
-      padding: 3rem 0;
-      text-align: center;
+      padding: 25px 50px;
+      width: 100%;
       margin-top: 40px;
+      border-radius: 20px 20px 0 0;
     }
 
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
+    .footer-images {
       display: flex;
-      flex-direction: column;
+      gap: 20px;
       align-items: center;
-      gap: 1.5rem;
     }
 
-    .footer-logos {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .footer-logos img {
-      height: 3rem;
+    .footer-images img {
+      height: 50px;
+      width: auto;
       filter: brightness(0) invert(1);
-      opacity: 0.8;
-      transition: var(--transizione);
+      transition: transform 0.3s ease;
     }
 
-    .footer-logos img:hover {
-      opacity: 1;
+    .footer-images img:hover {
+      transform: translateY(-3px);
     }
 
     .footer-text {
-      font-size: 1rem;
-      opacity: 0.8;
+      font-size: 1em;
+      flex-grow: 1;
+      text-align: center;
+      font-weight: 500;
     }
 
-    .footer-social {
+    .social-links {
       display: flex;
-      gap: 1rem;
+      gap: 15px;
     }
 
-    .footer-social a {
-      color: white;
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 50%;
+    .social-links a {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.1);
-      transition: var(--transizione);
-      text-decoration: none;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-radius: 50%;
+      transition: all 0.3s ease;
     }
 
-    .footer-social a:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-0.2rem);
+    .social-links a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
     }
 
     @media (max-width: 768px) {
@@ -432,10 +423,22 @@
         grid-template-columns: 1fr;
       }
       
-      .footer-content {
+      footer {
         flex-direction: column;
-        gap: 1.5rem;
-        padding: 0 1rem;
+        gap: 20px;
+        padding: 25px 20px;
+        text-align: center;
+      }
+      
+      .footer-text {
+        order: 3;
+        width: 100%;
+        margin-top: 10px;
+      }
+      
+      .social-links {
+        justify-content: center;
+        margin-top: 15px;
       }
     }
 
@@ -452,10 +455,6 @@
       .contact-item {
         flex-direction: column;
         align-items: flex-start;
-      }
-      
-      .footer-content {
-        padding: 0 1rem;
       }
     }
   </style>
@@ -486,7 +485,10 @@
           Queste esperienze mi hanno fornito una solida base tecnica e la capacità di risolvere problemi complessi. Sono particolarmente appassionato di diagnostica hardware, ottimizzazione dei sistemi e sviluppo software. Credo nell'apprendimento continuo e mi piace tenermi aggiornato sulle ultime tendenze tecnologiche.
         </p>
         
-        
+        <div class="quote">
+          "La tecnologia è solo uno strumento. In termini di motivazione e gestione della classe, l'insegnante è la cosa più importante."
+          <span class="quote-author">- Bill Gates</span>
+        </div>
       </div>
 
       <div class="info-section">
@@ -497,6 +499,7 @@
               <i class="fas fa-envelope"></i>
               <div>
                 <strong>Email:</strong> brocanellitommaso@gmail.com<br>
+                <small>Rispondo generalmente entro 24 ore</small>
               </div>
             </div>
           </li>
@@ -505,6 +508,7 @@
               <i class="fas fa-phone"></i>
               <div>
                 <strong>Telefono:</strong> +39 351 901 6355<br>
+                <small>Disponibile dalle 15:00 alle 19:00</small>
               </div>
             </div>
           </li>
@@ -512,7 +516,8 @@
             <div class="contact-item">
               <i class="fas fa-map-marker-alt"></i>
               <div>
-                <strong>Località:</strong> Ostra Vetere, Marche<br>               
+                <strong>Località:</strong> Ostra Vetere, Marche<br>
+                <small>Aperto a opportunità in tutta la regione</small>
               </div>
             </div>
           </li>
@@ -547,18 +552,19 @@
   </div>
 
   <footer>
-    <div class="footer-content">
-      <div class="footer-text">
-        IIS Marconi Pieralisi - Jesi(AN)
-      </div>
-      <div class="footer-text">
-        &copy; 2025 Portfolio Esame di Stato - Tommaso Brocanelli
-      </div>
-      <div class="footer-social">
-        <a href="https://www.linkedin.com/feed/?trk=sem-ga_campid.20677489327_asid.153452322614_crid.677545198980_kw.linkedin_d.c_tid.kwd-148086543_n.g_mt.e_geo.9053433" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/tommasobrocanelli" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="mailto:brocanellitommaso@gmail.com?subject=&body=" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      </div>
+    <div class="footer-images">
+      <img src="img/logo1.png" alt="Logo 1">
+      <img src="img/logo2.png" alt="Logo 2">
+    </div>
+    
+    <div class="footer-text">
+      &copy; 2025 Presentazione Esame di Stato - Tommaso Brocanelli
+    </div>
+    
+    <div class="social-links">
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
     </div>
   </footer>
 </body>
