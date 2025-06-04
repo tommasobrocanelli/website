@@ -391,6 +391,98 @@
     .delay-2 { animation-delay: 0.2s; }
     .delay-3 { animation-delay: 0.3s; }
     .delay-4 { animation-delay: 0.4s; }
+    
+    /* Nuovi stili per la sezione TPSIT e IA */
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      width: 100%;
+      padding: 20px 0;
+    }
+    
+    .project-box {
+      background: linear-gradient(145deg, #ffffff, #f5f9ff);
+      border-radius: 16px;
+      box-shadow: var(--ombra);
+      overflow: hidden;
+      transition: var(--transizione);
+      position: relative;
+      border: 2px solid transparent;
+    }
+    
+    .project-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(26, 60, 130, 0.15);
+      border: 2px solid rgba(26, 60, 130, 0.1);
+    }
+    
+    .project-image {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      transition: transform 0.4s ease;
+    }
+    
+    .project-box:hover .project-image {
+      transform: scale(1.05);
+    }
+    
+    .project-content {
+      padding: 20px;
+    }
+    
+    .project-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: var(--blu-scuro);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .project-description {
+      color: #555;
+      font-size: 0.95em;
+      text-align: center;
+      min-height: 60px;
+      margin-bottom: 15px;
+    }
+    
+    .project-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(to right, var(--blu-chiaro), var(--blu-logo));
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .project-button:hover {
+      background: linear-gradient(to right, var(--blu-logo), var(--blu-scuro));
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(26, 60, 130, 0.3);
+    }
+    
+    .project-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: linear-gradient(45deg, #ff7e5f, #feb47b);
+      color: white;
+      font-size: 0.8em;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
 
     /* Responsive adjustments */
     @media (max-width: 900px) {
@@ -428,6 +520,10 @@
         gap: 1.5rem;
         padding: 0 1rem;
       }
+      
+      .projects-container {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 480px) {
@@ -451,6 +547,10 @@
       
       .footer-content {
         padding: 0 1rem;
+      }
+      
+      .projects-container {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -568,26 +668,59 @@
           <i class="fas fa-chevron-down accordion-icon"></i>
         </div>
         <div class="accordion-content">
-          <div class="carousel">
-            <button class="arrow arrow-left">&#10094;</button>
-            <div class="carousel-images">
-              <img src="https://images.unsplash.com/photo-1677442135722-5f8ea49cec8a?q=80&w=1000" alt="Intelligenza Artificiale">
-              <img src="https://images.unsplash.com/photo-1677442135133-33d364e7d2d9?q=80&w=1000" alt="Machine Learning">
-              <img src="https://images.unsplash.com/1677442135693-2b35b0e6e03f?q=80&w=1000" alt="Algoritmi">
+          <div class="projects-container">
+            <!-- Progetto 1 -->
+            <div class="project-box">
+              <div class="project-badge">TPSIT</div>
+              <img src="img/progetto1.jpg" alt="Progetto AI" class="project-image">
+              <div class="project-content">
+                <div class="project-title">Riconoscimento Immagini</div>
+                <div class="project-description">Sistema di riconoscimento immagini basato su reti neurali convoluzionali</div>
+                <a href="files/progetto1.zip" class="project-button">
+                  <i class="fas fa-download"></i> Scarica progetto
+                </a>
+              </div>
             </div>
-            <button class="arrow arrow-right">&#10095;</button>
-            <div class="carousel-indicators">
-              <div class="indicator active"></div>
-              <div class="indicator"></div>
-              <div class="indicator"></div>
+            
+            <!-- Progetto 2 -->
+            <div class="project-box">
+              <div class="project-badge">TPSIT</div>
+              <img src="img/images.png" alt="Progetto AI" class="project-image">
+              <div class="project-content">
+                <div class="project-title">Chatbot Intelligente</div>
+                <div class="project-description">Assistente virtuale con NLP e machine learning per risposte contestuali</div>
+                <a href="files/Sandbox Android.pdf.zip" class="project-button">
+                  <i class="fas fa-download"></i> Scarica progetto
+                </a>
+              </div>
+            </div>
+            
+            <!-- Progetto 3 -->
+            <div class="project-box">
+              <div class="project-badge">IA</div>
+              <img src="img/ia2.png" alt="Progetto TPSIT" class="project-image">
+              <div class="project-content">
+                <div class="project-title">Client/Server</div>
+                <div class="project-description">Architettura client-server con socket TCP e gestione multi-thread</div>
+                <a href="files/Brocanelli_progetto_IA.ipynb" class="project-button">
+                  <i class="fas fa-download"></i> Scarica progetto
+                </a>
+              </div>
+            </div>
+            
+            <!-- Progetto 4 -->
+            <div class="project-box">
+              <div class="project-badge">IA</div>
+              <img src="img/progetto4.jpg" alt="Progetto AI" class="project-image">
+              <div class="project-content">
+                <div class="project-title">Modello Previsioni</div>
+                <div class="project-description">Sistema predittivo per serie temporali basato su reti LSTM</div>
+                <a href="files/progetto4.zip" class="project-button">
+                  <i class="fas fa-download"></i> Scarica progetto
+                </a>
+              </div>
             </div>
           </div>
-          <p class="accordion-text">
-            Tecnologie e Progettazione di Sistemi Informatici e Telecomunicazioni (TPSIT) mi ha introdotto alle tecnologie avanzate e all'Intelligenza Artificiale. Ho esplorato algoritmi di machine learning e sviluppato piccoli progetti di IA.
-          </p>
-          <p class="accordion-text">
-            Questo percorso mi ha permesso di comprendere come l'IA stia trasformando vari settori e quali siano le implicazioni etiche di queste tecnologie. Ho anche approfondito le telecomunicazioni e i protocolli di comunicazione moderni.
-          </p>
         </div>
       </div>
 
