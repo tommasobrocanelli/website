@@ -392,16 +392,20 @@
     .delay-3 { animation-delay: 0.3s; }
     .delay-4 { animation-delay: 0.4s; }
     
-    /* Nuovi stili per la sezione TPSIT e IA */
+    /* Stili per la sezione TPSIT e IA */
     .projects-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 25px;
       width: 100%;
       padding: 20px 0;
+      align-items: stretch;
     }
     
     .project-box {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
       background: linear-gradient(145deg, #ffffff, #f5f9ff);
       border-radius: 16px;
       box-shadow: var(--ombra);
@@ -432,6 +436,9 @@
     
     .project-content {
       padding: 20px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     
     .project-title {
@@ -446,8 +453,9 @@
       color: #555;
       font-size: 0.95em;
       text-align: center;
-      min-height: 60px;
+      flex-grow: 1;
       margin-bottom: 15px;
+      min-height: 60px;
     }
     
     .project-button {
@@ -463,6 +471,7 @@
       transition: all 0.3s ease;
       border: none;
       cursor: pointer;
+      margin-top: auto;
     }
     
     .project-button:hover {
@@ -672,11 +681,11 @@
             <!-- Progetto 1 -->
             <div class="project-box">
               <div class="project-badge">TPSIT</div>
-              <img src="img/progetto1.jpg" alt="Progetto AI" class="project-image">
+              <img src="img/unnamed.gif"  class="project-image">
               <div class="project-content">
-                <div class="project-title">Progetto TPSIT</div>
-                <div class="project-description">progetto</div>
-                <a href="files/progetto1.zip" class="project-button">
+                <div class="project-title">Sandbox Android</div>
+                <div class="project-description">In questo progetto io e altri due miei compagni abbiamo realizzato una presentazione trattando la sandbox di android, spiegandola e inserendo servizi, vantaggi e svantaggi</div>
+                <a href="files/Sandbox Android.pptx" class="project-button">
                   <i class="fas fa-download"></i> Scarica progetto
                 </a>
               </div>
@@ -685,11 +694,12 @@
             <!-- Progetto 2 -->
             <div class="project-box">
               <div class="project-badge">TPSIT</div>
-              <img src="img/images.png" alt="Progetto AI" class="project-image">
+              <img src="img/logo-c.jpg" alt="Progetto AI" class="project-image">
               <div class="project-content">
-                <div class="project-title">progetto TPSIT</div>
-                <div class="project-description">Progetto</div>
-                <a href="files/Sandbox Android.pdf.zip" class="project-button">
+                <div class="project-title">programma in C</div>
+                <div class="project-description">Questo programma utilizza i thread per contare il numero di parole in un testo in modo parallelo. Dividendo il testo in porzioni e assegnando a ciascun thread il compito di contare le parole nella sua porzione.
+</div>
+                <a href="files/programma.zip" class="project-button">
                   <i class="fas fa-download"></i> Scarica progetto
                 </a>
               </div>
@@ -700,9 +710,10 @@
               <div class="project-badge">IA</div>
               <img src="img/ia2.png" alt="Progetto TPSIT" class="project-image">
               <div class="project-content">
-                <div class="project-title">Progetto IA</div>
-                <div class="project-description">Progetto IA</div>
-                <a href="files/Brocanelli_progetto_IA.ipynb" class="project-button">
+                <div class="project-title">Progetto KNN</div>
+                <div class="project-description">Questo programma carica il dataset delle cifre manoscritte (digits), lo esplora visivamente e addestra un classificatore K-Nearest Neighbors per riconoscere le cifre. Visualizza inoltre le performance del modello con metriche di classificazione. 
+                  </div>
+                <a href="files/Brocanelli_progetto_IA.zip" class="project-button">
                   <i class="fas fa-download"></i> Scarica progetto
                 </a>
               </div>
@@ -711,11 +722,11 @@
             <!-- Progetto 4 -->
             <div class="project-box">
               <div class="project-badge">IA</div>
-              <img src="img/progetto4.jpg" alt="Progetto AI" class="project-image">
+              <img src="img/progettoiaimg.png" alt="Progetto AI" class="project-image">
               <div class="project-content">
-                <div class="project-title">Progetto IA</div>
-                <div class="project-description">Progetto IA</div>
-                <a href="files/progetto4.zip" class="project-button">
+                <div class="project-title">Progetto CNN</div>
+                <div class="project-description">Il progetto usa una CNN per classificare immagini del dataset CIFAR-10 in 10 categorie, addestrando e valutando il modello con TensorFlow.</div>
+                <a href="files/BrocanelliTommaso_5BM__Progetto_IA_Deep_Learning.zip" class="project-button">
                   <i class="fas fa-download"></i> Scarica progetto
                 </a>
               </div>
