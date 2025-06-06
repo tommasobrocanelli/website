@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educazione Civica - Educazione Digitale</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --blu-logo: #1A3C82;
+      --blu-chiaro: #3b6bc5;
+      --blu-scuro: #0d2a5f;
+      --grigio-chiaro: #f8f9fa;
+      --ombra: 0 4px 20px rgba(0, 0, 0, 0.1);
+      --transizione: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(145deg, var(--blu-scuro), var(--blu-logo));
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: var(--ombra);
+      z-index: 10;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .home-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.15);
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      text-decoration: none;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .home-button:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .home-button svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+      transition: fill 0.3s ease;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-subtitle {
+      font-size: 1.2em;
+      margin-top: 10px;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    .decorative-shape {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px;
+      background-color: var(--blu-logo);
+      clip-path: polygon(50% 100%, 0 0, 100% 0);
+      z-index: 5;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2.2em;
+      color: var(--blu-logo);
+      margin-bottom: 40px;
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+      padding-bottom: 15px;
+      width: fit-content;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blu-chiaro), var(--blu-logo));
+      border-radius: 2px;
+    }
+
+    .content-card {
+      background-color: white;
+      max-width: 900px;
+      width: 100%;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: var(--ombra);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      margin-bottom: 30px;
+    }
+
+    .content-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .content-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--blu-chiaro), var(--blu-logo));
+    }
+
+    .info-section {
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .info-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .info-section h2 {
+      color: var(--blu-logo);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.8em;
+    }
+
+    .info-section h2 i {
+      background: linear-gradient(135deg, var(--blu-chiaro), var(--blu-logo));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 1.2em;
+    }
+
+    .info-section p {
+      font-size: 1.15em;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .info-section ul {
+      padding-left: 0;
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .info-section li {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding-left: 30px;
+      position: relative;
+    }
+
+    .info-section li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 20px;
+      height: 20px;
+      background-color: var(--blu-logo);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.8em;
+      font-weight: bold;
+    }
+
+    .info-section li:nth-child(1)::before { content: '1'; }
+    .info-section li:nth-child(2)::before { content: '2'; }
+    .info-section li:nth-child(3)::before { content: '3'; }
+    .info-section li:nth-child(4)::before { content: '4'; }
+    .info-section li:nth-child(5)::before { content: '5'; }
+
+    .pdf-container {
+      background: linear-gradient(135deg, rgba(26, 60, 130, 0.05) 0%, rgba(59, 107, 197, 0.05) 100%);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      margin: 40px 0;
+      border: 2px dashed var(--blu-logo);
+      transition: var(--transizione);
+    }
+
+    .pdf-container:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(26, 60, 130, 0.1);
+    }
+
+    .pdf-icon {
+      font-size: 4rem;
+      color: var(--blu-logo);
+      margin-bottom: 20px;
+    }
+
+    .pdf-title {
+      font-size: 1.5em;
+      color: var(--blu-scuro);
+      margin-bottom: 15px;
+    }
+
+    .pdf-description {
+      color: #555;
+      margin-bottom: 25px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 30px;
+      background: linear-gradient(135deg, var(--blu-chiaro), var(--blu-logo));
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: var(--transizione);
+      box-shadow: 0 4px 15px rgba(26, 60, 130, 0.3);
+    }
+
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(26, 60, 130, 0.4);
+    }
+
+    .key-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin: 40px 0;
+    }
+
+    .point-card {
+      background: linear-gradient(135deg, #f8faff 0%, #f0f6ff 100%);
+      border: 1px solid rgba(26, 60, 130, 0.15);
+      border-radius: 12px;
+      padding: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .point-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(26, 60, 130, 0.15);
+    }
+
+    .point-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--blu-chiaro), var(--blu-logo));
+    }
+
+    .point-card h3 {
+      color: var(--blu-logo);
+      margin-top: 0;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .point-card h3 i {
+      background: linear-gradient(135deg, var(--blu-chiaro), var(--blu-logo));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .quote {
+      margin: 30px 0;
+      padding: 25px;
+      background: linear-gradient(135deg, rgba(26, 60, 130, 0.05) 0%, rgba(59, 107, 197, 0.05) 100%);
+      border-left: 4px solid var(--blu-logo);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--blu-scuro);
+      position: relative;
+    }
+
+    .quote::before {
+      content: '"';
+      position: absolute;
+      top: -20px;
+      left: 10px;
+      font-size: 4em;
+      color: rgba(26, 60, 130, 0.15);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .quote-author {
+      display: block;
+      text-align: right;
+      margin-top: 10px;
+      font-weight: bold;
+      color: var(--blu-logo);
+      font-style: normal;
+    }
+
+    /* Updated Footer Styles */
+    footer {
+      background: var(--blu-scuro);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-logos {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-logos img {
+      height: 3rem;
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+      transition: var(--transizione);
+    }
+
+    .footer-logos img:hover {
+      opacity: 1;
+    }
+
+    .footer-text {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social a {
+      color: white;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      transition: var(--transizione);
+      text-decoration: none;
+    }
+
+    .footer-social a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-0.2rem);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 30px 15px;
+      }
+      
+      header h1 {
+        font-size: 2em;
+      }
+      
+      .header-subtitle {
+        font-size: 1em;
+      }
+      
+      .container {
+        padding: 40px 15px;
+      }
+      
+      .section-title {
+        font-size: 1.8em;
+      }
+      
+      .content-card {
+        padding: 25px;
+      }
+      
+      .key-points {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 0 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home-button {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .info-section h2 {
+        font-size: 1.5em;
+      }
+      
+      .pdf-container {
+        padding: 20px;
+      }
+      
+      .footer-content {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="home-button" aria-label="Vai alla Home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+      </a>
+      <h1>Educazione Civica</h1>
+      <div class="header-subtitle">Levitanskij e simulazione ONU</div>
+    </div>
+    <div class="decorative-shape"></div>
+  </header>
+
+  <div class="container">
+    <div class="section-title">Educazione Digitale</div>
+    
+    <div class="content-card">
+      <div class="info-section">
+        <h2><i class="fas fa-globe-europe"></i> Cittadinanza Digitale</h2>
+        <p>L'educazione digitale è un aspetto fondamentale della cittadinanza moderna. In un mondo sempre più connesso, è essenziale comprendere non solo come utilizzare le tecnologie, ma anche come farlo in modo responsabile, sicuro e consapevole.</p>
+        <p>La cittadinanza digitale abbraccia temi come la sicurezza online, la privacy dei dati, la netiquette, il cyberbullismo e la partecipazione attiva alla società digitale. Queste competenze sono diventate indispensabili per navigare, lavorare e interagire nel XXI secolo.</p>
+        
+        <div class="quote">
+          "Io non partecipo alla guerra, è la guerra che partecipa a me."
+          <span class="quote-author">- Jurij Levitanskij</span>
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    <div class="content-card">
+      <div class="info-section">
+        <h2><i class="fas fa-book"></i> Il mio elaborato</h2>
+        
+        
+        <div class="pdf-container">
+          <i class="fas fa-file-pdf pdf-icon"></i>
+          <h3 class="pdf-title">Guida all'Educazione Digitale</h3>
+          <p class="pdf-description">Un manuale completo che copre tutti gli aspetti della cittadinanza digitale, dalla sicurezza online all'uso responsabile dei social media, dalla protezione dei dati alla lotta contro il cyberbullismo.</p>
+          <a href="#" class="download-btn">
+            <i class="fas fa-download"></i> Scarica il PDF
+          </a>
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-text">
+        IIS Marconi Pieralisi - Jesi(AN)
+      </div>
+      <div class="footer-text">
+         &copy 2025 Portfolio Esame di Stato - Tommaso Brocanelli
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
