@@ -81,17 +81,39 @@
     .download-button {
       display: inline-block;
       margin-top: 15px;
-      padding: 10px 20px;
-      background-color: var(--blu-logo);
+      padding: 12px 24px;
+      background: linear-gradient(145deg, var(--blu-logo), var(--blu-chiaro));
       color: white;
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
-      transition: background-color 0.3s ease;
+      font-size: 1em;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(26, 60, 130, 0.3);
+      position: relative;
+      overflow: hidden;
     }
 
     .download-button:hover {
-      background-color: var(--blu-chiaro);
+      background: linear-gradient(145deg, var(--blu-chiaro), var(--blu-scuro));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(26, 60, 130, 0.4);
+    }
+
+    .download-button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 10px rgba(26, 60, 130, 0.3);
+    }
+
+    .download-button i {
+      margin-right: 8px;
+    }
+
+    .download-center {
+      text-align: center;
+      margin-top: 25px;
     }
 
     header h1 {
@@ -227,7 +249,7 @@
 
     .large-image {
       width: 100%;
-      height: 400px;
+      height: 600px;
       object-fit: cover;
       border-radius: 12px;
       box-shadow: var(--ombra);
@@ -242,6 +264,91 @@
     .content-text {
       margin-top: 20px;
       padding: 0 20px;
+    }
+
+    /* Nuovi stili per il visualizzatore PDF */
+    .pdf-viewer-container {
+      width: 100%;
+      margin: 20px 0;
+      padding: 0 20px;
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: var(--ombra);
+      background-color: #f5f5f5;
+    }
+
+    .pdf-fallback {
+      width: 100%;
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f9fa;
+      border: 2px dashed #ccc;
+      border-radius: 12px;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .pdf-fallback i {
+      font-size: 4em;
+      color: var(--blu-logo);
+      margin-bottom: 20px;
+    }
+
+    .pdf-fallback h3 {
+      color: var(--blu-logo);
+      margin-bottom: 15px;
+      font-size: 1.4em;
+    }
+
+    .pdf-fallback p {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 1.1em;
+    }
+
+    /* Stili per il nuovo container testo-immagine */
+    .text-image-container {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin: 25px 0;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .text-content {
+      flex: 1;
+      font-size: 1.1em;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .image-content {
+      flex: 0 0 300px;
+    }
+
+    .slide-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: var(--transizione);
+    }
+
+    .slide-image:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
 
     .carousel {
@@ -423,7 +530,21 @@
       }
 
       .large-image {
-        height: 300px;
+        height: 450px;
+      }
+
+      .pdf-viewer {
+        height: 500px;
+      }
+
+      .text-image-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .image-content {
+        flex: 1 1 auto;
+        max-width: 100%;
       }
     }
 
@@ -447,7 +568,15 @@
       }
 
       .large-image {
-        height: 250px;
+        height: 350px;
+      }
+
+      .pdf-viewer {
+        height: 400px;
+      }
+
+      .slide-image {
+        height: 150px;
       }
       
       .footer-content {
@@ -472,7 +601,20 @@
       }
 
       .large-image {
-        height: 200px;
+        height: 300px;
+      }
+
+      .pdf-viewer {
+        height: 350px;
+      }
+
+      .slide-image {
+        height: 120px;
+      }
+
+      .text-image-container {
+        padding: 15px;
+        gap: 15px;
       }
       
       .footer-content {
@@ -507,12 +649,27 @@
         </div>
         <div class="accordion-content">
           <div class="large-image-container">
-            <img src="img/sitoscuola.png" alt="Immagine principale italiano" class="large-image">
+            <a href="https://st10531.wixsite.com/tommaso">
+              <img src="img/sitoscuola.png" class="large-image">
+            </a>            
           </div>
           <div class="content-text">
             <p class="accordion-text">
               Questo sito è un lavoro realizzato per Italiano e Storia, in cui parlo del novecento, illustrando rivoluzioni e scoperte nei vari campi. 
               All'inizio ho inserito una breve introduzione sulla massificazione, il fenomeno che ha caratterizzato l'inizio di questo secolo e che ha formato la società odierna, poi tutto è diviso in sezioni, per esempio letteratura, in cui descrivo le varie avanguardie che si sono affermate e il romanzo moderno , le scoperte scientifiche, Heisenberg e il principio di indeterminazione nella sezione di Scienza, e una parte dedicata a Freud e la psicanalisi.           </p>
+            
+            <div class="text-image-container">
+              <div class="text-content">
+                <p>Questo progetto svolto in italiano nel terzo anno parla dell'inferno di Dante, ho raccontato questa parte della Divina Commedia descrivendo tutti i canti e inserendo anche opere importanti e rappresentative che li raccontano.</p>
+                <a href="files/L'inferno di Dante.pptx" class="download-button" download>
+                  <i class="fas fa-download"></i>Scarica Progetto
+                </a>
+              </div>
+              <div class="image-content">
+                <img src="img/dante.png" alt="Screenshot della slide" class="slide-image">
+              </div>
+            </div>
+            
             <p class="accordion-text">
               
             </p>
@@ -557,26 +714,33 @@
           <i class="fas fa-chevron-down accordion-icon"></i>
         </div>
         <div class="accordion-content">
-          <div class="carousel">
-            <button class="arrow arrow-left">&#10094;</button>
-            <div class="carousel-images">
-              <img src="img/" alt="Intelligenza Artificiale">
-              <img src="img/" alt="Machine Learning">
-              <img src="img/" alt="Algoritmi">
-            </div>
-            <button class="arrow arrow-right">&#10095;</button>
-            <div class="carousel-indicators">
-              <div class="indicator active"></div>
-              <div class="indicator"></div>
-              <div class="indicator"></div>
-            </div>
+          <div class="large-image-container">
+            <img src="img/Screenshot 2025-06-24 alle 10.28.32.png" alt="Progetto di Inglese" class="large-image">
           </div>
-          <p class="accordion-text">
-            lavori inglese
-          </p>
-          <p class="accordion-text">
+          <div class="content-text">
+            <p class="accordion-text">
+              In questo progetto di inglese descrivo la mia esperienza di PCTO, descrivendo rispettivamente i due periodi di permanenza nell'azienda, e infine anche cosa ho imparato.
+            </p>
             
-          </p>
+            <div class="download-center">
+              <a href="files/Tommaso Brocanelli PCTO (1).pdf" class="download-button" download>
+                <i class="fas fa-download"></i>Scarica Progetto
+              </a>
+            </div>
+
+            <div class="large-image-container">
+              <a href="https://gamma.app/docs/Daniel-Ek-c9a7dw01dilsm1p?mode=present#card-sk3jobpkkn532pw">
+                <img src="img/Screenshot 2025-06-24 alle 10.54.36.png" alt="Progetto di Inglese" class="large-image">
+              </a>
+            </div>
+
+
+          </div>
+          <div class="content-text">
+            <p class="accordion-text">
+               In quest'altro lavoro parlo di Daniel Ek, il creatore di Spotify, un app per ascoltare la musica in streaming 
+            </p>           
+          </div>
         </div>
       </div>
 
@@ -596,9 +760,9 @@
         &copy; 2025 Portfolio Esame di Stato - Tommaso Brocanelli
       </div>
       <div class="footer-social">
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/feed/?trk=sem-ga_campid.20677489327_asid.153452322614_crid.677545198980_kw.linkedin_d.c_tid.kwd-148086543_n.g_mt.e_geo.9053433" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/tommasobrocanelli" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=brocanellitommaso@gmail.com', '_blank'" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
   </footer>
@@ -664,6 +828,29 @@
           }
         });
       });
+
+      // Check if PDF iframe loads correctly
+      const pdfViewer = document.querySelector('.pdf-viewer');
+      const pdfFallback = document.querySelector('.pdf-fallback');
+      
+      if (pdfViewer && pdfFallback) {
+        pdfViewer.addEventListener('error', function() {
+          pdfViewer.style.display = 'none';
+          pdfFallback.style.display = 'flex';
+        });
+        
+        // Fallback per browser che non supportano iframe PDF
+        setTimeout(() => {
+          try {
+            if (pdfViewer.contentDocument === null) {
+              pdfViewer.style.display = 'none';
+              pdfFallback.style.display = 'flex';
+            }
+          } catch (e) {
+            // Ignora errori cross-origin
+          }
+        }, 3000);
+      }
     });
   </script>
 </body>
